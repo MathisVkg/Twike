@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Text;
+using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using Microsoft.AspNetCore.Mvc;
 using TwikeAPI.Common.Mappings;
 using TwikeAPI.Models;
@@ -17,10 +18,18 @@ public class LoginController : ControllerBase
     }
     
     [HttpGet]
-    public IActionResult GetUser(string password)
+    public IActionResult GetUser()
     {
         List<User> users = _context.Users.ToList();
-        var userFind = users.Find(find => find.Password == password);
+        return Ok(users);
+    }
+    
+    [HttpGet("id")]
+    public IActionResult GetUserById(string password)
+    {
+        List<User> users = _context.Users.ToList();
+        var passHash = getHash(password);
+        var userFind = users.Find(find => find.Password == passHash);
         return Ok("authoken: " + userFind.Authtoken);
     }
     
@@ -30,13 +39,25 @@ public class LoginController : ControllerBase
         var user = new User
         {
             Username = userDto.Username,
-            Password = userDto.Password,
+            Password = getHash(userDto.Password),
             Authtoken = Guid.NewGuid().ToString()
         };
         _context.Users.Add(user);
         await _context.SaveChangesAsync();
         return Ok("auth-token: " + user.Authtoken);
     }
+
+    private static string getHash(string password)
+    {
+        var passHash = KeyDerivation.Pbkdf2(  
+            password: password,  
+            salt: Encoding.UTF8.GetBytes(password),  
+            prf: KeyDerivationPrf.HMACSHA512,  
+            iterationCount: 10000,  
+            numBytesRequested: 256 / 8);
+        return Convert.ToBase64String(passHash);
+    }
+    
 }
 
 public class UserDto: IMapFrom<User>

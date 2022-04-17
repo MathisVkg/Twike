@@ -24,7 +24,7 @@ builder.Services.AddDbContext<TwikeDbContext>(options =>
 builder.Services.AddCors(options =>
 {
     var allowHost = configuration.GetValue<string>("AllowedHosts");
-    options.AddDefaultPolicy(cors => cors.WithOrigins(allowHost).AllowAnyMethod().AllowAnyHeader());
+    options.AddDefaultPolicy(cors => cors.WithOrigins(allowHost).AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin());
 });
 
 var app = builder.Build();

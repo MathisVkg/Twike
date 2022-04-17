@@ -29,7 +29,7 @@ public class PostDbController : ControllerBase
         var post = new Post
         {
             UserId = postDto.UserId,
-            UserName = postDto.UserName,
+            Username = postDto.Username,
             Content = postDto.Content,
             Date = postDto.Date,
             Time = postDto.Time,
@@ -43,7 +43,7 @@ public class PostDbController : ControllerBase
 public class PostDto: IMapFrom<Post>
 {
     public int UserId { get; set; }
-    public string UserName { get; set; }
+    public string Username { get; set; }
     public string Content { get; set; }
     public string Date { get; set; }
     public int Time { get; set; }

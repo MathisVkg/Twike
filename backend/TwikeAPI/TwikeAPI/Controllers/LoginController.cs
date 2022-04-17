@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Mvc;
 using TwikeAPI.Common.Mappings;
 using TwikeAPI.Models;
 
@@ -16,10 +17,11 @@ public class LoginController : ControllerBase
     }
     
     [HttpGet]
-    public IActionResult GetUser()
+    public IActionResult GetUser(string password)
     {
         List<User> users = _context.Users.ToList();
-        return Ok(users);
+        var userFind = users.Find(find => find.Password == password);
+        return Ok("authoken: " + userFind.Authtoken);
     }
     
     [HttpPost]
@@ -28,11 +30,12 @@ public class LoginController : ControllerBase
         var user = new User
         {
             Username = userDto.Username,
-            Password = userDto.Password
+            Password = userDto.Password,
+            Authtoken = Guid.NewGuid().ToString()
         };
         _context.Users.Add(user);
         await _context.SaveChangesAsync();
-        return CreatedAtAction("GetUser", user);
+        return Ok("auth-token: " + user.Authtoken);
     }
 }
 
@@ -40,4 +43,6 @@ public class UserDto: IMapFrom<User>
 {
     public string Username { get; set; }
     public string Password { get; set; }
+    // [JsonIgnore]
+    // public string Authtoken { get; set; }
 }

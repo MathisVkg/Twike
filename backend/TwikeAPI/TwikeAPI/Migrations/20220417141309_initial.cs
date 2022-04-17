@@ -19,7 +19,7 @@ namespace TwikeAPI.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     UserId = table.Column<int>(type: "int", nullable: false),
-                    UserName = table.Column<string>(type: "varchar(280)", maxLength: 280, nullable: false)
+                    Username = table.Column<string>(type: "varchar(280)", maxLength: 280, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Content = table.Column<string>(type: "varchar(280)", maxLength: 280, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
@@ -42,6 +42,8 @@ namespace TwikeAPI.Migrations
                     Username = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Password = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Authtoken = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
@@ -79,8 +81,8 @@ namespace TwikeAPI.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    userId = table.Column<int>(type: "int", nullable: false),
-                    userName = table.Column<string>(type: "varchar(280)", maxLength: 280, nullable: false)
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    Username = table.Column<string>(type: "varchar(280)", maxLength: 280, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Content = table.Column<string>(type: "varchar(280)", maxLength: 280, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),

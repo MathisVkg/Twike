@@ -7,7 +7,7 @@ public class Post
     public int Id { get; set; }
     public int UserId { get; set; }
     [MaxLength(280)]
-    public string UserName { get; set; }
+    public string Username { get; set; }
     [MaxLength(280)]
     public string Content { get; set; }
     public string Date { get; set; }

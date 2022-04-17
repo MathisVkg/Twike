@@ -39,7 +39,7 @@ namespace TwikeAPI.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
-                    b.Property<string>("UserName")
+                    b.Property<string>("Username")
                         .IsRequired()
                         .HasMaxLength(280)
                         .HasColumnType("varchar(280)");
@@ -95,10 +95,10 @@ namespace TwikeAPI.Migrations
                     b.Property<int>("Time")
                         .HasColumnType("int");
 
-                    b.Property<int>("userId")
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
-                    b.Property<string>("userName")
+                    b.Property<string>("Username")
                         .IsRequired()
                         .HasMaxLength(280)
                         .HasColumnType("varchar(280)");
@@ -115,6 +115,10 @@ namespace TwikeAPI.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    b.Property<string>("Authtoken")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Password")
                         .IsRequired()

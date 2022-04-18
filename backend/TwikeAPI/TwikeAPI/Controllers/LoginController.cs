@@ -17,20 +17,29 @@ public class LoginController : ControllerBase
         _context = context;
     }
     
-    [HttpGet]
-    public IActionResult GetUser()
+    [HttpGet("user")]
+    public IActionResult GetUser(string user)
     {
         List<User> users = _context.Users.ToList();
-        return Ok(users);
+        var userCheck = users.Find(find => find.Username == user);
+        if (userCheck == null)
+        {
+            return Ok(false);
+        }
+        return Ok(true);
     }
     
     [HttpGet("id")]
-    public IActionResult GetUserById(string password)
+    public IActionResult GetUserById(string username, string password)
     {
         List<User> users = _context.Users.ToList();
         var passHash = getHash(password);
-        var userFind = users.Find(find => find.Password == passHash);
-        return Ok("authoken: " + userFind.Authtoken);
+        var userFind = users.Find(find => find.Password == passHash && find.Username == username);
+        if (userFind == null)
+        {
+            return Ok(false);
+        }
+        return Ok(userFind.Authtoken);
     }
     
     [HttpPost]
@@ -59,6 +68,7 @@ public class LoginController : ControllerBase
     }
     
 }
+
 
 public class UserDto: IMapFrom<User>
 {

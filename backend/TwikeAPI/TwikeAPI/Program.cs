@@ -21,10 +21,14 @@ var serverVersion = new MySqlServerVersion(new Version(8, 0, 27));
 builder.Services.AddDbContext<TwikeDbContext>(options =>
     options.UseMySql("server=localhost; user=root; password=root12345678; database=TwikeDB;", serverVersion));
 
+var AllowHostOrigin = "AllowHostOrigin";
+
 builder.Services.AddCors(options =>
 {
-    var allowHost = configuration.GetValue<string>("AllowedHosts");
-    options.AddDefaultPolicy(cors => cors.WithOrigins(allowHost).AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin());
+    options.AddPolicy(AllowHostOrigin, policy =>
+    {
+        policy.WithOrigins("*").AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
+    });
 });
 
 var app = builder.Build();
@@ -32,9 +36,12 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    app.UseDeveloperExceptionPage();
     app.UseSwagger();
     app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "webapi v1"));
 }
+
+app.UseCors(AllowHostOrigin);
 
 app.UseHttpsRedirection();
 

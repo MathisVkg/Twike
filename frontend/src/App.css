@@ -16,7 +16,7 @@ body {
 .containerRight h2 {
     color: #fff;
     font-size: 1.8em;
-    margin-top: 30%;
+    margin-top: 25%;
     margin-left: 50px;
 }
 
@@ -47,6 +47,9 @@ body {
     margin-left: 15px;
     margin-top: 10px;
 }
+.errorSpan {
+    color: #e82929;
+}
 .formSignIn button {
     margin-top: 15px;
 }
@@ -71,6 +74,46 @@ body {
     border-radius: 25px;
 }
 
-.formSignUp input, .formSignUp button {
-    margin-top: 10px;
+.formSignUp button {
+    margin-top: 15px;
+}
+.modal-footer .btnCancel {
+    font-size: 1.1em;
+    font-weight: 400;
+}
+.formSignUp span {
+    font-size: 1em;
+    font-weight: 500;
+    margin-bottom: 0;
+    margin-top: 5px;
+}
+.modal-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.modalTitle {
+    font-size: 1.5em;
+}
+
+.lds-dual-ring {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+}
+.lds-dual-ring:after {
+    content: " ";
+    display: block;
+    margin-top: 3px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
 }

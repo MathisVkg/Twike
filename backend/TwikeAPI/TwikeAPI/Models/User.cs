@@ -8,7 +8,8 @@ public class User
     [MaxLength(100)]
     public string Username { get; set; }
     [MaxLength(100)]
+    public string Email { get; set; }
+    [MaxLength(100)]
     public string Password { get; set; }
-
     public string Authtoken { get; set; }
 }

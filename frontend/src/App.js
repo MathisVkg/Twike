@@ -1,20 +1,14 @@
 import './App.css';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Auth from './Component/Auth';
-import Homepage from './Component/Homepage';
+import { Routes, Route } from "react-router-dom";
+import Auth from './Component/Login/Auth';
+import Home from './Component/Homepage/Home';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function App() {
     return (
-        <Router>
-            <Switch>
-                <Route exact path="/">
-                    <Auth />
-                </Route>
-                <Route exact path="/homepage">
-                    <Homepage />
-                </Route>
-            </Switch>
-        </Router>
+        <Routes>
+            <Route path="/" element={<Auth />} />
+            <Route path="/home/:username" element={<Home />} />
+        </Routes>
     )
 }

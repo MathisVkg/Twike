@@ -120,6 +120,11 @@ namespace TwikeAPI.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasMaxLength(100)

@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using Microsoft.AspNetCore.Mvc;
 using TwikeAPI.Common.Mappings;
@@ -17,19 +18,31 @@ public class LoginController : ControllerBase
         _context = context;
     }
     
-    [HttpGet("user")]
-    public IActionResult GetUser(string user)
+    [HttpGet("userInfo")]
+    public IActionResult GetUser(string user, string token)
     {
         List<User> users = _context.Users.ToList();
-        var userCheck = users.Find(find => find.Username == user);
-        if (userCheck == null)
+        var userFind = users.Find(find => find.Username == user && find.Authtoken == token);
+        if (userFind == null)
         {
-            return Ok(false);
+            return Ok(new {
+                success = false,
+                response = "user not found"
+            });
         }
-        return Ok(true);
+        return Ok(new
+        {
+            success = true,
+            response = new {
+                username = userFind.Username,
+                authtoken = userFind.Authtoken,
+                email = userFind.Email,
+                id = userFind.Id
+            }
+        });
     }
     
-    [HttpGet("id")]
+    [HttpGet("userConnect")]
     public IActionResult GetUserById(string username, string password)
     {
         List<User> users = _context.Users.ToList();
@@ -37,9 +50,19 @@ public class LoginController : ControllerBase
         var userFind = users.Find(find => find.Password == passHash && find.Username == username);
         if (userFind == null)
         {
-            return Ok(false);
+            return Ok(new
+            {
+                success = false,
+                response = "null"
+            });
         }
-        return Ok(userFind.Authtoken);
+        return Ok(new
+        {
+            success = true,
+            response = new {
+                authtoken = userFind.Authtoken
+            }
+        });
     }
     
     [HttpPost]
@@ -48,6 +71,7 @@ public class LoginController : ControllerBase
         var user = new User
         {
             Username = userDto.Username,
+            Email = userDto.Email,
             Password = getHash(userDto.Password),
             Authtoken = Guid.NewGuid().ToString()
         };
@@ -73,7 +97,6 @@ public class LoginController : ControllerBase
 public class UserDto: IMapFrom<User>
 {
     public string Username { get; set; }
+    public string Email { get; set; }
     public string Password { get; set; }
-    // [JsonIgnore]
-    // public string Authtoken { get; set; }
 }

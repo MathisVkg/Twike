@@ -4,7 +4,7 @@ import { Button, Modal, ModalBody, ModalHeader, ModalFooter } from 'reactstrap';
 function AuthSignUp(props) {
     const [usernameCreate, setUsernameCreate] = useState("");
     const [passwordCreate, setPasswordCreate] = useState("");
-    const errorFormSignUp = props.errorFormSignUp
+    const [emailCreate, setEmailCreate] = useState("");
     const modal = props.modal;
     const loadingBtn = props.loadingBtn;
     const toggle = () => {
@@ -13,7 +13,7 @@ function AuthSignUp(props) {
         props.toggle();
     };
     const formSubmitSignUp = (e) => {
-        props.formSubmitSignUp(e, usernameCreate, passwordCreate);
+        props.formSubmitSignUp(e, usernameCreate, passwordCreate, emailCreate);
         setUsernameCreate("");
         setPasswordCreate("");
     };
@@ -27,9 +27,12 @@ function AuthSignUp(props) {
             <ModalBody>
                 <form onSubmit={formSubmitSignUp} className="d-flex flex-column formSignUp">
                     <div className="d-flex flex-column">
+                        <span>Email</span>
+                        <input type="text" name="email" className="form-control w-100" value={emailCreate} onChange={(e) => setEmailCreate(e.target.value)} />
+                    </div>
+                    <div className="d-flex flex-column">
                         <span>Username</span>
                         <input type="text" name="username" className="form-control w-100" value={usernameCreate} onChange={(e) => setUsernameCreate(e.target.value)} />
-                        <span className="errorSpan">{ errorFormSignUp ? "User already exist" : "" }</span>
                     </div>
                     <div className="d-flex flex-column">
                         <span>Password</span>

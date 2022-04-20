@@ -2,22 +2,17 @@ import React, {useState} from "react";
 import { AiOutlineTwitter } from 'react-icons/ai';
 import AuthSignUp from './AuthSignUp';
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Auth() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [remember, setRemember] = useState(false);
     const [modal, setModal] = useState(false);
-    const [errorFormSignUp, setErrorFormSignUp] = useState(false);
     const [errorFormSignIn, setErrorFormSignIn] = useState(false);
     const [loadingBtn, setLoadingBtn] = useState(false);
     const toggle = () => setModal(!modal);
-
-    function checkTokenAuth() {
-        if (localStorage.getItem("authtoken") !== null) {
-            window.location.replace("http://localhost:3000/Homepage");
-        }
-    }
+    let navigate = useNavigate();
 
     const formSubmitSignIn = (e) => {
         e.preventDefault();
@@ -28,38 +23,27 @@ function Auth() {
         else {
             setLoadingBtn(true);
             setTimeout( () => {
-                connectUser(username, password);
+                connectUser(username.trim(), password.trim());
                 setLoadingBtn(false);
                 setErrorFormSignIn(false);
-                window.location.replace("http://localhost:3000/Homepage");
+                navigate(`/Home/${username.trim()}`)
             }, 1200);
         }
     }
 
-    const formSubmitSignUp = (e, user, password) => {
+    const formSubmitSignUp = (e, user, password, email) => {
         e.preventDefault();
         setLoadingBtn(true);
-        const userInfo = { "username": user.trim(), "password": password.trim() }
+        const userInfo = {"username": user.trim(), "password": password.trim(), "email": email.trim()}
         if (user === "" || password === "") return;
-        checkUser(userInfo.username);
-        setTimeout( () => {
-            console.log(errorFormSignUp)
-            if (errorFormSignUp === true) return;
-            else {
-                setErrorFormSignUp(false);
+        else {
+            setTimeout(() => {
+                // setErrorFormSignUp(false);
                 setModal(false);
                 setLoadingBtn(false);
                 createAccount(userInfo);
-            }
-        }, 1200);
-    }
-
-    function checkUser(username) {
-        const url = "https://localhost:7190/Login/user?user=";
-        axios.get(url + username).then((resp) => {
-            if (resp.data === true) setErrorFormSignUp(true);
-            if (resp.data === false)  setErrorFormSignUp(false);
-        })
+            }, 1200);
+        }
     }
 
     async function createAccount(userInfo) {
@@ -71,21 +55,18 @@ function Auth() {
     }
 
     async function connectUser(username, password) {
-        const url = "https://localhost:7190/Login/id?username=";
+        const url = "https://localhost:7190/Login/userConnect?username=";
         await axios.get(url + username + "&password=" + password).then((resp) => {
-            if (resp.data === false) setErrorFormSignIn(true);
-            if (remember === true) localStorage.setItem("authtoken", resp.data);
+            if (resp.data.success) localStorage.setItem("authtoken", resp.data.response.authtoken);
         })
     }
 
-    checkTokenAuth();
     return(
         <div className="d-flex">
             <AuthSignUp
                 toggle={toggle}
                 modal={modal}
                 formSubmitSignUp={formSubmitSignUp}
-                errorFormSignUp={errorFormSignUp}
                 loadingBtn={loadingBtn}
             />
             <div className="w-50 containerLeft">

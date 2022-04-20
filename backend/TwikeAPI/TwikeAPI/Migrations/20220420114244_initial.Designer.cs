@@ -10,7 +10,7 @@ using TwikeAPI.Models;
 namespace TwikeAPI.Migrations
 {
     [DbContext(typeof(TwikeDbContext))]
-    [Migration("20220417141309_initial")]
+    [Migration("20220420114244_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -121,6 +121,11 @@ namespace TwikeAPI.Migrations
                     b.Property<string>("Authtoken")
                         .IsRequired()
                         .HasColumnType("longtext");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("Password")
                         .IsRequired()

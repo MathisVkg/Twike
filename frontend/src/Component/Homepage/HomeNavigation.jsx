@@ -17,16 +17,16 @@ function HomeNavigation(props) {
         <div className="containerNavigation">
             <span onClick={ () => navigate(`/Home/${username.trim()}`) } className="twikeIcon"><AiOutlineTwitter /></span>
             <nav className="nav">
-                <span onClick={ () => navigate(`/Home/${username.trim()}`) }><BiHomeCircle /><span>Home</span></span>
-                <span><BiHash /><span>Explore</span></span>
-                <span><VscBell /><span>Notifications</span></span>
-                <span><FiMail /><span>Messages</span></span>
-                <span><BsBookmark /><span>Bookmarks</span></span>
-                <span><BsCardText /><span>Lists</span></span>
-                <span><HiOutlineUser /><span>Profile</span></span>
-                <span><HiOutlineDotsCircleHorizontal /><span>More</span></span>
+                <span onClick={ () => navigate(`/Home/${username.trim()}`) }><BiHomeCircle /><p>Home</p></span>
+                <span><BiHash /><p>Explore</p></span>
+                <span><VscBell /><p>Notifications</p></span>
+                <span><FiMail /><p>Messages</p></span>
+                <span><BsBookmark /><p>Bookmarks</p></span>
+                <span><BsCardText /><p>Lists</p></span>
+                <span><HiOutlineUser /><p>Profile</p></span>
+                <span><HiOutlineDotsCircleHorizontal /><p>More</p></span>
             </nav>
-            <button className="btn btn-primary btnTweet">Tweet</button>
+            <button className="btn btnTweet">Tweet</button>
         </div>
     )
 }

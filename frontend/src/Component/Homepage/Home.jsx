@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import Navigation from './HomeNavigation';
 import Post from "./Post";
 import LeftSideBar from "./LeftSideBar";
+import CreatePost from "./CreatePost";
 
 function Home() {
 
@@ -20,9 +21,17 @@ function Home() {
 
     return(
         <div className="containerHome">
-            <Navigation username={username} />
-            <Post />
-            <LeftSideBar />
+            <header className="homeHeader">
+                <Navigation username={username} />
+            </header>
+            <div className="containerContent">
+                <div className="containerMid">
+                    <h2>Home</h2>
+                    <CreatePost />
+                    <Post />
+                </div>
+                <LeftSideBar />
+            </div>
         </div>
     )
 }

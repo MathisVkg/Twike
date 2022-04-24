@@ -5,6 +5,15 @@ body {
     font-family: 'Akshar', sans-serif !important;
     color: #fff !important;
 }
+.btn-secondary:active,
+.btn-secondary.dropdown-toggle:focus,
+.btn-secondary.dropdown-toggle,
+.btn-secondary:focus,
+.btn-secondary:focus {
+    border: unset !important;
+    background-color: unset !important;
+    box-shadow: unset !important;
+}
 
 /*BtnLoading anim*/
 .lds-dual-ring {
@@ -26,6 +35,56 @@ body {
 @keyframes lds-dual-ring {
     from {transform: rotate(0deg);}
     to {transform: rotate(360deg);}
+}
+
+
+/* BtnCross */
+.btnCrossSign:after {
+    content: "";
+    display: block;
+    background-color: #151515;
+    width: 17px;
+    height: 2px;
+    transform: rotate(45deg);
+}
+.btnCrossSign:before {
+    position: relative;
+    top: 2px;
+    content: "";
+    display: block;
+    background-color: #151515;
+    width: 17px;
+    height: 2px;
+    transform: rotate(-45deg);
+}
+.btnCross:after {
+    content: "";
+    display: block;
+    background-color: #fff;
+    width: 17px;
+    height: 2px;
+    transform: rotate(45deg);
+}
+.btnCross:before {
+    position: relative;
+    top: 2px;
+    content: "";
+    display: block;
+    background-color: #fff;
+    width: 17px;
+    height: 2px;
+    transform: rotate(-45deg);
+}
+
+/* UserPP */
+.userPP {
+    content: "";
+    background-color: #177fc4;
+    width: 50px;
+    height: 45px;
+    display: block;
+    border-radius: 9999px;
+    margin-left: 10px;
 }
 
 /*Login Page*/
@@ -68,6 +127,7 @@ body {
 }
 .formSignIn button, .formSignIn input {
     border-radius: 25px;
+    font-size: 1.1em;
 }
 .formSignIn span {
     margin-left: 15px;
@@ -109,22 +169,121 @@ body {
     font-size: 1.1em;
     font-weight: 400;
 }
+.formSignUp .d-flex {
+    margin-top: 15px;
+}
 .formSignUp span {
     font-size: 1em;
     font-weight: 500;
     margin-bottom: 0;
     margin-top: 5px;
+    color: #151515;
 }
 .modal-title {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    color: #151515;
 }
 .modalTitle {
     font-size: 1.5em;
 }
 
+/* ModalTweet */
+div .modalTweet {
+    max-width: 600px;
+    min-height: calc(100% - 38em);
+}
+div .modal-backdrop {
+    background-color: rgba(91, 112, 131, 0.4);
+}
+.modalTweet .modal-content {
+    background-color: #151515;
+    color: #fff;
+}
+.modalTweet .modal-header {
+    border: unset;
+}
+.modalTweet .modal-body {
+    padding-top: 0;
+}
+.modalTweet .modal-body .btnTweet {
+    background-color: #177fc4;
+    border-radius: 9999px;
+    padding: .375rem 1.1rem;
+    margin-right: 5px;
+}
+.modalTweet svg {
+    color: #177fc4;
+    font-size: 1.2em;
+    margin: 0 5px;
+    cursor: pointer;
+}
+.modalTweet textarea {
+    margin-left: 10px;
+    margin-top: 5px;
+    background: transparent;
+    resize: none;
+    border: 0 none;
+    font-size: 1.2em;
+    outline: none;
+    width: 100%;
+    height: 140px;
+    color: #fff;
+}
+
+/* Dropdown Tweet */
+.dropdown {
+    margin-left: 65px;
+    border-bottom: 1px solid rgb(47, 51, 54);
+    padding-bottom: 10px;
+}
+.dropdown .btn-secondary {
+    border: unset;
+    background-color: unset;
+}
+.dropdown .dropdown-toggle:after {
+    content: unset;
+}
+.dropdown .dropdown-toggle span {
+    display: flex;
+    align-items: center;
+}
+.dropdown .dropDownTitle {
+    font-size: 1.5em;
+    color: #fff;
+}
+.dropdown p {
+    font-size: 1.1em;
+    color: inherit;
+}
+.dropdown .dropdown-menu {
+    background-color: #151515;
+    border-radius: 16px;
+    box-shadow: rgb(255 255 255 / 20%) 0 0 15px, rgb(255 255 255 / 15%) 0 0 3px 1px;
+    transform: translate(-85px, 38px) !important;
+}
+.dropdown .dropdown-header {
+    padding: .5rem 2rem;
+}
+.dropdown .dropdown-menu .dropdown-item {
+    padding: unset;
+}
+.dropdown .dropdown-menu button svg {
+    background-color: #177fc4;
+    color: #fff;
+    padding: 8px;
+    font-size: 2.3em;
+    border-radius: 9999px;
+    margin: 10px 10px 10px 25px;
+}
+.dropdown .dropdown-menu button:hover {
+    background-color: rgba(91, 112, 131, 0.16);
+}
+.dropdown .dropdown-menu button {
+    color: #fff;
+}
 
 /* Home */
 .containerHome {
@@ -194,6 +353,7 @@ body {
 /* Content */
 .containerContent {
     display: flex;
+    margin-top: 45px;
 }
 .containerContent .containerMid {
     margin: 0 15px;
@@ -211,15 +371,6 @@ body {
     padding: 12px 0;
     border-top: 1px solid rgb(47, 51, 54);
     display: flex;
-}
-.containerPost .userPP {
-    content: "";
-    background-color: #177fc4;
-    width: 45px;
-    height: 40px;
-    display: block;
-    border-radius: 9999px;
-    margin-left: 10px;
 }
 .containerPost .postGroup {
     margin-left: 10px;
@@ -256,7 +407,7 @@ body {
 }
 /* Create Post */
 .containerCreatePost {
-    margin: 12px 0;
+    margin-bottom: 12px;
     width: 100%;
     height: 120px;
     background-color: #646464;

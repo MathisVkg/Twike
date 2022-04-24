@@ -6,7 +6,7 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { AiFillHeart } from "react-icons/ai";
 import { IoShareOutline } from "react-icons/io5"
 
-function Post(props) {
+function Post() {
 
     return(
         <div className="containerPost">

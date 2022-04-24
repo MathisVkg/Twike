@@ -11,7 +11,15 @@ function Auth() {
     const [modal, setModal] = useState(false);
     const [errorFormSignIn, setErrorFormSignIn] = useState(false);
     const [loadingBtn, setLoadingBtn] = useState(false);
-    const toggle = () => setModal(!modal);
+    const toggle = () => {
+        if (modal) {
+            document.body.style.overflow = "initial";
+            setModal(!modal);
+        } else {
+            document.body.style.overflow = "hidden";
+            setModal(!modal);
+        }
+    };
     let navigate = useNavigate();
 
     const formSubmitSignIn = (e) => {
@@ -24,9 +32,6 @@ function Auth() {
             setLoadingBtn(true);
             setTimeout( () => {
                 connectUser(username.trim(), password.trim());
-                setLoadingBtn(false);
-                setErrorFormSignIn(false);
-                navigate(`/Home/${username.trim()}`)
             }, 1200);
         }
     }
@@ -57,7 +62,15 @@ function Auth() {
     async function connectUser(username, password) {
         const url = "https://localhost:7190/Login/userConnect?username=";
         await axios.get(url + username + "&password=" + password).then((resp) => {
-            if (resp.data.success) localStorage.setItem("authtoken", resp.data.response.authtoken);
+            if (resp.data.success) {
+                localStorage.setItem("authtoken", resp.data.response.authtoken);
+                setLoadingBtn(false);
+                setErrorFormSignIn(false);
+                navigate(`/Home/${username.trim()}`);
+            } else {
+                setLoadingBtn(false);
+                setErrorFormSignIn(true);
+            }
         })
     }
 
@@ -70,7 +83,7 @@ function Auth() {
                 loadingBtn={loadingBtn}
             />
             <div className="w-50 containerLeft">
-                <img src="https://raw.githubusercontent.com/MathisVkg/Twike/main/frontend/src/assets/img/lohp_en_1302x955.png?token=GHSAT0AAAAAABREZ6OCM7LVIPHXNDLOKVLWYS5LYNQ" alt="authimg" className="authImg"/>
+                <img src="../../assets/img/lohp_en_1302x955.png" alt="authimg" className="authImg"/>
                 <AiOutlineTwitter className="authSvg"/>
             </div>
             <div className="w-50 containerRight">
@@ -89,7 +102,7 @@ function Auth() {
                         <input type="checkbox" name="remember" className="checkboxInput" value={remember} onChange={e => setRemember(e.target.checked)}/>
                     </div>
                     <span className="errorSpan">{ errorFormSignIn ? "Username or password incorrect" : "" }</span>
-                    <button type="submit" className="btn btn-primary">{ loadingBtn ? <div className="lds-dual-ring"></div> : "Log In" }</button>
+                    <button type="submit" className="btn btn-primary">{ loadingBtn ? <div className="lds-dual-ring" /> : "Log In" }</button>
                 </form>
                 <div className="divSignUp">
                     <p>You don't have account ? Create one here</p>

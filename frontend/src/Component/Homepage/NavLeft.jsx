@@ -10,8 +10,7 @@ import { HiOutlineUser } from "react-icons/hi";
 import { HiOutlineDotsCircleHorizontal } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
 
-function HomeNavigation(props) {
-    const username = props.username;
+function NavLeft({ username, toggle }) {
     let navigate = useNavigate();
     return(
         <div className="containerNavigation">
@@ -26,9 +25,9 @@ function HomeNavigation(props) {
                 <span><HiOutlineUser /><p>Profile</p></span>
                 <span><HiOutlineDotsCircleHorizontal /><p>More</p></span>
             </nav>
-            <button className="btn btnTweet">Tweet</button>
+            <button className="btn btnTweet" onClick={ toggle }>Tweet</button>
         </div>
     )
 }
 
-export default HomeNavigation;
+export default NavLeft;

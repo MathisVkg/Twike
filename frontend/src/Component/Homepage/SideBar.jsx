@@ -1,6 +1,6 @@
 import React from "react";
 
-function LeftSideBar(props) {
+function SideBar() {
 
     return(
         <div className="containerSideBar">
@@ -9,4 +9,4 @@ function LeftSideBar(props) {
     )
 }
 
-export default LeftSideBar;
+export default SideBar;

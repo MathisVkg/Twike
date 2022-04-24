@@ -1,31 +1,19 @@
 import React, { useState } from "react";
 import { Button, Modal, ModalBody, ModalHeader, ModalFooter } from 'reactstrap';
 
-function AuthSignUp(props) {
+function AuthSignUp({ modal, loadingBtn, toggle, formSubmitSignUp }) {
     const [usernameCreate, setUsernameCreate] = useState("");
     const [passwordCreate, setPasswordCreate] = useState("");
     const [emailCreate, setEmailCreate] = useState("");
-    const modal = props.modal;
-    const loadingBtn = props.loadingBtn;
-    const toggle = () => {
-        setUsernameCreate("");
-        setPasswordCreate("");
-        props.toggle();
-    };
-    const formSubmitSignUp = (e) => {
-        props.formSubmitSignUp(e, usernameCreate, passwordCreate, emailCreate);
-        setUsernameCreate("");
-        setPasswordCreate("");
-    };
 
     return(
         <Modal centered fullscreen="md" size="" backdrop="static" isOpen={ modal } toggle={ toggle }>
             <ModalHeader>
                 <span className="modalTitle">Create a account</span>
-                <button type="button" className="cross-modal btn" onClick={ toggle }>X</button>
+                <button type="button" className="cross-modal btn" onClick={ toggle }><div className="btnCrossSign" /></button>
             </ModalHeader>
             <ModalBody>
-                <form onSubmit={formSubmitSignUp} className="d-flex flex-column formSignUp">
+                <form onSubmit={ (e) => formSubmitSignUp(e, usernameCreate, passwordCreate, emailCreate) } className="d-flex flex-column formSignUp">
                     <div className="d-flex flex-column">
                         <span>Email</span>
                         <input type="text" name="email" className="form-control w-100" value={emailCreate} onChange={(e) => setEmailCreate(e.target.value)} />
@@ -38,7 +26,7 @@ function AuthSignUp(props) {
                         <span>Password</span>
                         <input type="text" name="password" className="form-control w-100" value={passwordCreate}  onChange={(e) => setPasswordCreate(e.target.value)} />
                     </div>
-                    <button type="submit" className="btn btn-primary">{ loadingBtn ? <div className="lds-dual-ring"></div> : "Create Account" }</button>
+                    <button type="submit" className="btn btn-primary">{ loadingBtn ? <div className="lds-dual-ring" /> : "Create Account" }</button>
                 </form>
             </ModalBody>
             <ModalFooter>

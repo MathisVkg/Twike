@@ -9,12 +9,15 @@ import { BsFillGeoAltFill } from "react-icons/bs";
 import { BiWorld } from "react-icons/bi";
 import { GoMention } from "react-icons/go";
 import { RiUserFollowLine } from "react-icons/ri";
+import Stack from '@mui/material/Stack';
+import CircularProgress from '@mui/material/CircularProgress';
 
 function ModalTweet({ modal, toggle, loadingBtn, submitTweet }) {
     const [showTweetArea, setShowTweetArea] = useState(true);
     const [dropDown, setDropDown] = useState(false);
     const [whoCanSee, setWhoCanSee] = useState(1);
     const toggleDrop = () => setDropDown(!dropDown);
+    const [progressValue, setProgressValue] = useState(0);
 
     return(
         <Modal centered fullscreen="md" size="" isOpen={ modal } toggle={ toggle } className="modalTweet">
@@ -26,7 +29,7 @@ function ModalTweet({ modal, toggle, loadingBtn, submitTweet }) {
                     <form className="d-flex flex-column" onSubmit={ submitTweet }>
                         <div className="d-flex" style={{ marginTop: "5px" }}>
                             <span className="userPP" />
-                            <textarea name="text" id="" cols="30" rows="10" placeholder="What's happening ?"/>
+                            <textarea name="text" id="" cols="30" rows="10" placeholder="What's happening ?" onChange={ (e) => setProgressValue(e.target.value.length / 2.8) }/>
                         </div>
                         <Dropdown isOpen={ dropDown } toggle={ toggleDrop }>
                             <DropdownToggle caret>{
@@ -53,6 +56,9 @@ function ModalTweet({ modal, toggle, loadingBtn, submitTweet }) {
                                 <BsFillGeoAltFill/>
                             </div>
                             <div className="d-flex align-items-center">
+                                <Stack spacing={2} direction="row" className="mr-1">
+                                    <CircularProgress variant="determinate" value={progressValue}/>
+                                </Stack>
                                 <button type="submit" className="btn btn-primary btnTweet">
                                     { loadingBtn ? <span className="lds-dual-ring" style={{ transform: "scale(0.8)" }}/> : "Tweet" }
                                 </button>

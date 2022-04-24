@@ -6,6 +6,7 @@ import Post from "./Post";
 import SideBar from "./SideBar";
 import CreatePost from "./CreatePost";
 import ModalTweet from "./ModalTweet";
+import NavTop from "./NavTop";
 
 function Home() {
     const [modal, setModal] = useState(false);
@@ -59,8 +60,16 @@ function Home() {
                 />
             </header>
             <div className="containerContent">
+                <NavTop />
                 <div className="containerMid">
                     <CreatePost />
+                    <Post />
+                    <Post />
+                    <Post />
+                    <Post />
+                    <Post />
+                    <Post />
+                    <Post />
                     <Post />
                 </div>
                 <SideBar/>

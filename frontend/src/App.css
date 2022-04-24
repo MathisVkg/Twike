@@ -14,6 +14,27 @@ body {
     background-color: unset !important;
     box-shadow: unset !important;
 }
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+.modalTweet textarea::-webkit-scrollbar {
+    width: 4px;
+}
 
 /*BtnLoading anim*/
 .lds-dual-ring {
@@ -410,11 +431,40 @@ div .modal-backdrop {
     margin-bottom: 12px;
     width: 100%;
     height: 120px;
-    background-color: #646464;
+    background-color: #262A2DFF;
 }
 
 /* SideBar */
 .containerSideBar {
     width: 300px;
-    background-color: #646464;
+    background-color: #262A2DFF;
+}
+
+/* NavTopHome */
+.navTopHome {
+    position: fixed;
+    top: 0;
+    margin: 0 15px;
+    padding: 8px 0;
+    background-color: rgba(21, 21, 21, 0.56);
+}
+.navTopHome h2 {
+    font-size: 1.5em;
+    position: relative;
+}
+.navTopHome .searchGroup {
+    position: relative;
+    margin-left: 570px;
+}
+.navTopHome .searchGroup .searchIcon {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+}
+.navTopHome .searchGroup .searchInput {
+    background-color: #262A2DFF;
+    border: unset;
+    padding: 10px 50px;
+    border-radius: 25px;
+    color: inherit;
 }

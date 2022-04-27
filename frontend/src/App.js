@@ -1,4 +1,5 @@
-import './App.css';
+import './assets/Style/App.css';
+import './assets/Style/Base.css'
 import { Routes, Route } from "react-router-dom";
 import Auth from './Component/Login/Auth';
 import Home from './Component/Homepage/Home';

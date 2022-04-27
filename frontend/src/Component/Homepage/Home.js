@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from "react";
 import { userService } from "../../Services/UserService";
 import { useParams } from "react-router-dom";
-import NavLeft from './NavLeft';
+import NavLeft from './Components/NavLeft';
 import Post from "./Post";
 import SideBar from "./SideBar";
-import CreatePost from "./CreatePost";
-import ModalTweet from "./ModalTweet";
-import NavTop from "./NavTop";
+import CreatePost from "./Components/CreatePost";
+import ModalTweet from "./Components/ModalTweet";
+import NavTop from "./Components/NavTop";
 
 function Home() {
     const [modal, setModal] = useState(false);

@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 import { AiOutlineTwitter } from 'react-icons/ai';
 import AuthSignUp from './AuthSignUp';
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { authservice } from "../../Services/AuthService";
 
 function Auth() {
     const [username, setUsername] = useState("");
@@ -20,6 +20,8 @@ function Auth() {
             setModal(!modal);
         }
     };
+
+    // navigate(`/Home/${username.trim()}`);
     let navigate = useNavigate();
 
     const formSubmitSignIn = (e) => {
@@ -28,51 +30,31 @@ function Auth() {
             setErrorFormSignIn(true);
             return;
         }
-        else {
-            setLoadingBtn(true);
-            setTimeout( () => {
-                connectUser(username.trim(), password.trim());
-            }, 1200);
-        }
     }
 
     const formSubmitSignUp = (e, user, password, email) => {
         e.preventDefault();
         setLoadingBtn(true);
-        const userInfo = {"username": user.trim(), "password": password.trim(), "email": email.trim()}
-        if (user === "" || password === "") return;
-        else {
-            setTimeout(() => {
-                // setErrorFormSignUp(false);
-                setModal(false);
-                setLoadingBtn(false);
-                createAccount(userInfo);
-            }, 1200);
+        const userInfo = {
+            "username": user.trim(),
+            "password": password.trim(),
+            "email": email.trim()
         }
+        if (user === "" || password === "") return;
     }
 
-    async function createAccount(userInfo) {
-        const url = "https://localhost:7190/Login";
-        await axios.post(url, userInfo).then((resp) => {
-            if (resp.status === 200) console.log('create', resp);
-            else console.log("error");
+    const createNewUser = () => {
+        authservice.createAccount().then((resp) => {
+            console.log(resp);
         })
     }
 
-    async function connectUser(username, password) {
-        const url = "https://localhost:7190/Login/userConnect?username=";
-        await axios.get(url + username + "&password=" + password).then((resp) => {
-            if (resp.data.success) {
-                localStorage.setItem("authtoken", resp.data.response.authtoken);
-                setLoadingBtn(false);
-                setErrorFormSignIn(false);
-                navigate(`/Home/${username.trim()}`);
-            } else {
-                setLoadingBtn(false);
-                setErrorFormSignIn(true);
-            }
+    const processConnect = () => {
+        authservice.connectUser().then((resp) => {
+            console.log(resp);
         })
     }
+
 
     return(
         <div className="d-flex">
@@ -83,7 +65,7 @@ function Auth() {
                 loadingBtn={loadingBtn}
             />
             <div className="w-50 containerLeft">
-                <img src="../../assets/img/lohp_en_1302x955.png" alt="authimg" className="authImg"/>
+                <img src="../../assets/img/TwikeBack.png" alt="authimg" className="authImg"/>
                 <AiOutlineTwitter className="authSvg"/>
             </div>
             <div className="w-50 containerRight">

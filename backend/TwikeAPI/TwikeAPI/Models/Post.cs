@@ -1,19 +1,16 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace TwikeAPI.Models;
+﻿namespace TwikeAPI.Models;
 
 public class Post
 {
     public int Id { get; set; }
-    public int UserId { get; set; }
-    [MaxLength(280)]
-    public string Username { get; set; }
-    [MaxLength(280)]
+    
     public string Content { get; set; }
-    public string Date { get; set; }
-    public int Time { get; set; }
     
+    public string Pseudo { get; set; }
     
-    public List<Reaction> Reactions { get; set; }
-    public List<ReactionUser> ReactionUsers { get; set; }
+    public string AccountName { get; set; }
+    
+    public DateTime? Date { get; set; }
+    
+    public Reaction Reaction { get; set; }
 }

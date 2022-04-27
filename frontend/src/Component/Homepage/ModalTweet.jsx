@@ -16,8 +16,15 @@ function ModalTweet({ modal, toggle, loadingBtn, submitTweet }) {
     const [showTweetArea, setShowTweetArea] = useState(true);
     const [dropDown, setDropDown] = useState(false);
     const [whoCanSee, setWhoCanSee] = useState(1);
-    const toggleDrop = () => setDropDown(!dropDown);
     const [progressValue, setProgressValue] = useState(0);
+    const [errorTweet, setErrorTweet] = useState(true);
+    const toggleDrop = () => setDropDown(!dropDown);
+
+    const checkContent = (e) => {
+        setProgressValue(e.target.value.length / 2.8);
+        if (e.target.value.length) setErrorTweet(false);
+        else setErrorTweet(true)
+    }
 
     return(
         <Modal centered fullscreen="md" size="" isOpen={ modal } toggle={ toggle } className="modalTweet">
@@ -29,7 +36,7 @@ function ModalTweet({ modal, toggle, loadingBtn, submitTweet }) {
                     <form className="d-flex flex-column" onSubmit={ submitTweet }>
                         <div className="d-flex" style={{ marginTop: "5px" }}>
                             <span className="userPP" />
-                            <textarea name="text" id="" cols="30" rows="10" placeholder="What's happening ?" onChange={ (e) => setProgressValue(e.target.value.length / 2.8) }/>
+                            <textarea name="text" id="" cols="30" rows="10" placeholder="What's happening ?" onChange={ (e) => checkContent(e) }/>
                         </div>
                         <Dropdown isOpen={ dropDown } toggle={ toggleDrop }>
                             <DropdownToggle caret>{
@@ -59,7 +66,7 @@ function ModalTweet({ modal, toggle, loadingBtn, submitTweet }) {
                                 <Stack spacing={2} direction="row" className="mr-1">
                                     <CircularProgress variant="determinate" value={progressValue}/>
                                 </Stack>
-                                <button type="submit" className="btn btn-primary btnTweet">
+                                <button type="submit" className="btn btn-primary btnTweet" disabled={ errorTweet }>
                                     { loadingBtn ? <span className="lds-dual-ring" style={{ transform: "scale(0.8)" }}/> : "Tweet" }
                                 </button>
                             </div>

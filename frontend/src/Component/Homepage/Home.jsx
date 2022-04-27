@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import axios from "axios";
+import { userService } from "../../Services/UserService";
 import { useParams } from "react-router-dom";
 import NavLeft from './NavLeft';
 import Post from "./Post";
@@ -13,6 +13,7 @@ function Home() {
     const [loadingBtn, setLoadingBtn] = useState(false);
     const [data, setData] = useState([]);
     const { username } = useParams();
+    const token = localStorage.getItem("authtoken");
     const toggle = () => {
         if (modal) {
             document.body.style.overflow = "initial";
@@ -24,25 +25,44 @@ function Home() {
     }
 
     useEffect( () => {
-        if (data.length <= 0) connectUser(username, localStorage.getItem("authtoken"));
-    })
+        if (data.length <= 0) connectUser(token);
+    }, [])
 
     const submitTweet = (e) => {
         e.preventDefault();
-        const tweetContent = e.target.text.value.trim();
+        const dataTweet = {
+            "userId": data.id,
+            "username": data.username,
+            "content": e.target.text.value.trim(),
+            "date": formatDate(new Date()),
+            "time": new Date().getTime()
+        }
+        if (dataTweet.content === "") {
+            setLoadingBtn(true);
+            return;
+        }
         setLoadingBtn(true);
         setTimeout(() => {
             setLoadingBtn(false);
+            postTweet(dataTweet);
         }, 1200);
-        console.log('tweet: ', tweetContent);
+        console.log('tweet: ', dataTweet);
     }
 
-    async function connectUser(username, token) {
-        const url = "https://localhost:7190/Login/userInfo?user=";
-        await axios.get(url + username + "&token=" + token).then((resp) => {
-            setData(resp.data);
+    const formatDate = (date) => {
+        const options = { year: "numeric", month: "numeric", day: "numeric" };
+        return new Date(date).toLocaleString("fr-BE", options);
+    };
+
+    const connectUser = (token) => {
+        userService.getUserInfo(token).then((resp) => {
+            if (resp) setData(resp.data.response[0]);
             console.log(resp.data);
         })
+    }
+
+    const postTweet = (data) => {
+
     }
 
     return(
@@ -63,13 +83,6 @@ function Home() {
                 <NavTop />
                 <div className="containerMid">
                     <CreatePost />
-                    <Post />
-                    <Post />
-                    <Post />
-                    <Post />
-                    <Post />
-                    <Post />
-                    <Post />
                     <Post />
                 </div>
                 <SideBar/>

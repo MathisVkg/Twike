@@ -1,3 +1,5 @@
+using System.Reflection;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using TwikeAPI.Models;
 
@@ -6,8 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
+// builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
@@ -22,7 +24,6 @@ builder.Services.AddDbContext<TwikeDbContext>(options =>
     options.UseMySql("server=localhost; user=root; password=root12345678; database=TwikeDB;", serverVersion));
 
 var AllowHostOrigin = "AllowHostOrigin";
-
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(AllowHostOrigin, policy =>

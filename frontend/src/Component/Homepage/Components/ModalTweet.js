@@ -23,7 +23,9 @@ function ModalTweet({ modal, toggle, loadingBtn, submitTweet }) {
     const checkContent = (e) => {
         setProgressValue(e.target.value.length / 2.8);
         if (e.target.value.length) setErrorTweet(false);
-        else setErrorTweet(true)
+        else {
+            setErrorTweet(true);
+        }
     }
 
     return(
@@ -36,7 +38,10 @@ function ModalTweet({ modal, toggle, loadingBtn, submitTweet }) {
                     <form className="d-flex flex-column" onSubmit={ submitTweet }>
                         <div className="d-flex" style={{ marginTop: "5px" }}>
                             <span className="userPP" />
-                            <textarea name="text" id="" cols="30" rows="10" placeholder="What's happening ?" onChange={ (e) => checkContent(e) }/>
+                            <textarea name="text" id="" cols="30" rows="10" placeholder="What's happening ?"
+                                      onChange={ (e) => checkContent(e) }
+                                      maxLength="280"
+                            />
                         </div>
                         <Dropdown isOpen={ dropDown } toggle={ toggleDrop }>
                             <DropdownToggle caret>{
@@ -54,7 +59,7 @@ function ModalTweet({ modal, toggle, loadingBtn, submitTweet }) {
                             </DropdownMenu>
                         </Dropdown>
                         <div className="d-flex align-items-center justify-content-between mt-2">
-                            <div style={{paddingLeft: "65px"}}>
+                            <div style={{paddingLeft: "65px", cursor: "pointer" }}>
                                 <BsCardImage/>
                                 <AiOutlineFileGif/>
                                 <ImStatsBars/>

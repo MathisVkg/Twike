@@ -140,7 +140,6 @@ div .modal-backdrop {
     color: #177fc4;
     font-size: 1.2em;
     margin: 0 5px;
-    cursor: pointer;
 }
 .modalTweet textarea {
     margin-left: 10px;
@@ -156,55 +155,35 @@ div .modal-backdrop {
 }
 
 /* Dropdown Tweet */
-.dropdown {
+.modalTweet .dropdown {
     margin-left: 65px;
     border-bottom: 1px solid rgb(47, 51, 54);
     padding-bottom: 10px;
 }
-.dropdown .btn-secondary {
+.modalTweet .dropdown .btn-secondary {
     border: unset;
     background-color: unset;
 }
-.dropdown .dropdown-toggle:after {
+.modalTweet .dropdown .dropdown-toggle:after {
     content: unset;
 }
-.dropdown .dropdown-toggle span {
+.modalTweet .dropdown .dropdown-toggle span {
     display: flex;
     align-items: center;
 }
-.dropdown .dropDownTitle {
+.modalTweet .dropdown .dropDownTitle {
     font-size: 1.5em;
     color: #fff;
 }
-.dropdown p {
+.modalTweet .dropdown p {
     font-size: 1.1em;
     color: inherit;
 }
-.dropdown .dropdown-menu {
+.modalTweet .dropdown .dropdown-menu {
     background-color: #151515;
     border-radius: 16px;
     box-shadow: rgb(255 255 255 / 20%) 0 0 15px, rgb(255 255 255 / 15%) 0 0 3px 1px;
     transform: translate(-85px, 38px) !important;
-}
-.dropdown .dropdown-header {
-    padding: .5rem 2rem;
-}
-.dropdown .dropdown-menu .dropdown-item {
-    padding: unset;
-}
-.dropdown .dropdown-menu button svg {
-    background-color: #177fc4;
-    color: #fff;
-    padding: 8px;
-    font-size: 2.3em;
-    border-radius: 9999px;
-    margin: 10px 10px 10px 25px;
-}
-.dropdown .dropdown-menu button:hover {
-    background-color: rgba(91, 112, 131, 0.16);
-}
-.dropdown .dropdown-menu button {
-    color: #fff;
 }
 
 /* Home */
@@ -282,27 +261,41 @@ div .modal-backdrop {
     padding: 10px 5px;
     border-radius: 25px;
 }
-.containerUserCard div {
+.containerUserCard a {
     margin-left: 15px;
+    text-decoration: none;
 }
-.containerUserCard div .pseudo {
+.containerUserCard a:hover .pseudo {
+    color: #177fc4;
+}
+.containerUserCard a .pseudo {
     margin: 0;
     font-size: 1em;
+    color: #fff;
+    transition: 0.2s ease-in-out;
 }
-.containerUserCard div .accountName {
+.containerUserCard a .accountName {
     margin: 0;
     color: #646464;
     font-size: 0.9em;
 }
-.containerUserCard button {
+.containerUserCard .dropdown {
     position: absolute;
-    right: 25px;
-    padding: 2px;
+    right: 15px;
     color: #fff;
+}
+.containerUserCard .dropdown .dropdown-toggle:after {
+    content: unset
 }
 .containerUserCard button:hover {
     color: #fff;
 }
+.containerUserCard .dropdown .dropdown-menu {
+    background-color: #151515;
+    border-radius: 16px;
+    box-shadow: rgb(255 255 255 / 20%) 0 0 15px, rgb(255 255 255 / 15%) 0 0 3px 1px;
+}
+
 /* Content */
 .containerContent {
     display: flex;
@@ -318,6 +311,7 @@ div .modal-backdrop {
     font-size: 1.8em;
     margin-left: 15px;
 }
+
 /* Post */
 .containerPost {
     width: 100%;
@@ -352,11 +346,11 @@ div .modal-backdrop {
     padding: 0;
 }
 .containerPost .postReactions svg {
-    margin-right: 10px;
     font-size: 1em;
 }
 .containerPost .postReactions span {
     font-size: 1em;
+    margin-left: 10px;
 }
 /* Create Post */
 .containerCreatePost {

@@ -20,8 +20,6 @@ function Auth() {
             setModal(!modal);
         }
     };
-
-    // navigate(`/Home/${username.trim()}`);
     let navigate = useNavigate();
 
     const formSubmitSignIn = (e) => {

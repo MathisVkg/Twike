@@ -7,12 +7,14 @@ import ModalTweet from "./Components/ModalTweet";
 import NavTop from "./Components/NavTop";
 import CreatePost from "./Components/CreatePost";
 import UserCard from "./Components/UserCard";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
     const [modal, setModal] = useState(false);
     const [loadingBtn, setLoadingBtn] = useState(false);
     const [data, setData] = useState([]);
     const token = localStorage.getItem("authtoken");
+    let navigate = useNavigate();
     const toggle = () => {
         if (modal) {
             document.body.style.overflow = "initial";
@@ -24,6 +26,7 @@ function Home() {
     }
 
     useEffect( () => {
+        // if (token === null) navigate(`/`);
         if (data.length <= 0) connectUser(token);
     }, [])
 
@@ -64,6 +67,11 @@ function Home() {
 
     }
 
+    const processLogOut = () => {
+        localStorage.removeItem('authtoken');
+        navigate(`/`);
+    }
+
     return(
         <div className="containerHome">
             <ModalTweet
@@ -76,7 +84,7 @@ function Home() {
                 <NavLeft
                     toggle={toggle}
                 />
-                <UserCard />
+                <UserCard processLogOut={processLogOut} />
             </header>
             <div className="containerContent">
                 <NavTop />

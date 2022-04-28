@@ -13,11 +13,15 @@
 .containerLeft {
     position: relative;
     background-color: #646464;
+    width: 50%;
     height: 100vh;
+    background-image: url("../img/TwikeBack.png");
+    background-repeat: no-repeat;
 }
 .containerRight {
     position: relative;
     background-color: #151515;
+    width: 50%;
     height: 100vh;
 }
 .containerRight h2 {
@@ -256,26 +260,26 @@ div .modal-backdrop {
     display: flex;
     align-items: center;
     bottom: 15px;
-    background-color: #262A2DFF;
     width: 250px;
     padding: 10px 5px;
-    border-radius: 25px;
+    border-radius: 9999px;
+    transition: 0.2s ease-in-out;
 }
-.containerUserCard a {
+.containerUserCard:hover {
+    background-color: rgb(231, 233, 234, 0.1);
+}
+.containerUserCard div {
     margin-left: 15px;
     text-decoration: none;
 }
-.containerUserCard a:hover .pseudo {
-    color: #177fc4;
-}
-.containerUserCard a .pseudo {
+.containerUserCard div .pseudo {
     margin: 0;
     font-size: 1em;
     color: #fff;
     transition: 0.2s ease-in-out;
 }
-.containerUserCard a .accountName {
-    margin: 0;
+.containerUserCard div .accountName {
+    margin: -5px 0 0 0;
     color: #646464;
     font-size: 0.9em;
 }

@@ -64,7 +64,7 @@ function Auth() {
                 loadingBtn={loadingBtn}
             />
             <div className="w-50 containerLeft">
-                <img src="../../assets/img/TwikeBack.png" alt="authimg" className="authImg"/>
+                {/*<img src="../../assets/img/TwikeBack.png" alt="twikebackdrop" className="authImg"/>*/}
                 <AiOutlineTwitter className="authSvg"/>
             </div>
             <div className="w-50 containerRight">

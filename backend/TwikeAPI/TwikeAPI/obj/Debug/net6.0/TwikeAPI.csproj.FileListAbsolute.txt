@@ -77,15 +77,12 @@ C:\Users\mvk18\Documents\Repository\DEVELOP\Twike\backend\TwikeAPI\TwikeAPI\obj\
 C:\Users\mvk18\Documents\Repository\DEVELOP\Twike\backend\TwikeAPI\TwikeAPI\obj\Debug\net6.0\TwikeAPI.genruntimeconfig.cache
 C:\Users\mvk18\Documents\Repository\DEVELOP\Twike\backend\TwikeAPI\TwikeAPI\obj\Debug\net6.0\ref\TwikeAPI.dll
 C:\Users\mvk18\Documents\Repository\DEVELOP\Twike\backend\TwikeAPI\TwikeAPI\bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll
-C:\Users\mvk18\Documents\Repository\DEVELOP\Twike\backend\TwikeAPI\TwikeAPI\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
 C:\Users\mvk18\Documents\Repository\DEVELOP\Twike\backend\TwikeAPI\TwikeAPI\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\mvk18\Documents\Repository\DEVELOP\Twike\backend\TwikeAPI\TwikeAPI\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\mvk18\Documents\Repository\DEVELOP\Twike\backend\TwikeAPI\TwikeAPI\bin\Debug\net6.0\Microsoft.Extensions.Logging.dll
 C:\Users\mvk18\Documents\Repository\DEVELOP\Twike\backend\TwikeAPI\TwikeAPI\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\mvk18\Documents\Repository\DEVELOP\Twike\backend\TwikeAPI\TwikeAPI\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
 C:\Users\mvk18\Documents\Repository\DEVELOP\Twike\backend\TwikeAPI\TwikeAPI\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
-C:\Users\mvk18\Documents\Repository\DEVELOP\Twike\backend\TwikeAPI\TwikeAPI\bin\Debug\net6.0\Mono.TextTemplating.dll
-C:\Users\mvk18\Documents\Repository\DEVELOP\Twike\backend\TwikeAPI\TwikeAPI\bin\Debug\net6.0\System.CodeDom.dll
 C:\Users\mvk18\Documents\Repository\DEVELOP\Twike\backend\TwikeAPI\TwikeAPI\bin\Debug\net6.0\System.Collections.Immutable.dll
 C:\Users\mvk18\Documents\Repository\DEVELOP\Twike\backend\TwikeAPI\TwikeAPI\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
 C:\Users\mvk18\Documents\Repository\DEVELOP\Twike\backend\TwikeAPI\TwikeAPI\bin\Debug\net6.0\MediatR.dll
@@ -148,3 +145,4 @@ C:\Users\mathis\Documents\REPO\Twike\backend\TwikeAPI\TwikeAPI\obj\Debug\net6.0\
 C:\Users\mathis\Documents\REPO\Twike\backend\TwikeAPI\TwikeAPI\obj\Debug\net6.0\TwikeAPI.genruntimeconfig.cache
 C:\Users\mathis\Documents\REPO\Twike\backend\TwikeAPI\TwikeAPI\obj\Debug\net6.0\ref\TwikeAPI.dll
 C:\Users\mathis\Documents\REPO\Twike\backend\TwikeAPI\TwikeAPI\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\mvk18\Documents\Repository\DEVELOP\Twike\backend\TwikeAPI\TwikeAPI\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

@@ -1,27 +1,29 @@
 using System.Reflection;
+using FluentValidation;
 using MediatR;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TwikeAPI.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
 builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+builder.Services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+builder.Services.AddHttpContextAccessor();
+builder.Services.Configure<ApiBehaviorOptions>(options => { options.SuppressModelStateInvalidFilter = true; });
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new() { Title = "twikeapi", Version = "v1" });
+    c.SwaggerDoc("v1", new() { Title = "TwikeAPI", Version = "v1.0" });
 });
 
-var provider = builder.Services.BuildServiceProvider();
-var configuration = provider.GetService<IConfiguration>();
+// var provider = builder.Services.BuildServiceProvider();
+// var configuration = provider.GetService<IConfiguration>();
 var serverVersion = new MySqlServerVersion(new Version(8, 0, 27));
-
-builder.Services.AddDbContext<TwikeDbContext>(options =>
-    options.UseMySql("server=localhost; user=root; password=root12345678; database=TwikeDB;", serverVersion));
+var route = "server=localhost; user=root; password=root12345678; database=TwikeDB;";
+builder.Services.AddDbContext<TwikeDbContext>(options => options.UseMySql(route, serverVersion));
 
 var AllowHostOrigin = "AllowHostOrigin";
 builder.Services.AddCors(options =>
@@ -33,21 +35,21 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
-
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
     app.UseSwagger();
-    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "webapi v1"));
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "webapi v1");
+        // c.DefaultModelsExpandDepth(-1);
+    });
 }
 
 app.UseCors(AllowHostOrigin);
-
 app.UseHttpsRedirection();
-
+app.UseRouting();
+app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();

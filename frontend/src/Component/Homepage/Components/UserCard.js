@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { BsThreeDots } from "react-icons/bs";
-import { Link } from "react-router-dom";
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from "reactstrap";
 
 function UserCard({ processLogOut }) {
@@ -9,15 +8,11 @@ function UserCard({ processLogOut }) {
     return(
         <div className="containerUserCard">
             <span className="userPP"></span>
-            <Link to="#" className="d-flex flex-column">
+            <div to="#" className="d-flex flex-column">
                 <p className="pseudo">Pseudo</p>
                 <p className="accountName">AccountName</p>
-            </Link>
-            <Dropdown
-                isOpen={ dropDown }
-                toggle={ toggleDrop }
-                direction="up"
-            >
+            </div>
+            <Dropdown isOpen={ dropDown } toggle={ toggleDrop } direction="up">
                 <DropdownToggle caret><BsThreeDots /></DropdownToggle>
                 <DropdownMenu>
                     <DropdownItem>Settings</DropdownItem>

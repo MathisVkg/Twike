@@ -1,10 +1,9 @@
 import React from "react";
 
 function CreatePost() {
-
     return(
-        <div className="containerCreatePost">
-            hello create post
+        <div>
+            <p>hello post create</p>
         </div>
     )
 }

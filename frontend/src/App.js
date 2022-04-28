@@ -9,7 +9,7 @@ export default function App() {
     return (
         <Routes>
             <Route path="/" element={<Auth />} />
-            <Route path="/home/:username" element={<Home />} />
+            <Route path="/home" element={<Home />} />
         </Routes>
     )
 }

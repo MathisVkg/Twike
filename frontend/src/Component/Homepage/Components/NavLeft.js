@@ -8,25 +8,24 @@ import { BsBookmark } from "react-icons/bs";
 import { BsCardText } from "react-icons/bs";
 import { HiOutlineUser } from "react-icons/hi";
 import { HiOutlineDotsCircleHorizontal } from "react-icons/hi";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-function NavLeft({ username, toggle }) {
-    let navigate = useNavigate();
+function NavLeft({ toggle }) {
     return(
-        <div className="containerNavigation">
-            <span onClick={ () => navigate(`/Home/${username.trim()}`) } className="twikeIcon"><AiOutlineTwitter /></span>
-            <nav className="nav">
-                <span onClick={ () => navigate(`/Home/${username.trim()}`) }><BiHomeCircle /><p>Home</p></span>
-                <span><BiHash /><p>Explore</p></span>
-                <span><VscBell /><p>Notifications</p></span>
-                <span><FiMail /><p>Messages</p></span>
-                <span><BsBookmark /><p>Bookmarks</p></span>
-                <span><BsCardText /><p>Lists</p></span>
-                <span><HiOutlineUser /><p>Profile</p></span>
-                <span><HiOutlineDotsCircleHorizontal /><p>More</p></span>
-            </nav>
+        <nav className="containerNavigation">
+            <Link to="/home" className="twikeIcon"><AiOutlineTwitter /></Link>
+            <div className="navGroup">
+                <Link to="/home"><BiHomeCircle /><p>Home</p></Link>
+                <Link to="#"><BiHash /><p>Explore</p></Link>
+                <Link to="#"><VscBell /><p>Notifications</p></Link>
+                <Link to="#"><FiMail /><p>Messages</p></Link>
+                <Link to="#"><BsBookmark /><p>Bookmarks</p></Link>
+                <Link to="#"><BsCardText /><p>Lists</p></Link>
+                <Link to="#"><HiOutlineUser /><p>Profile</p></Link>
+                <Link to="#"><HiOutlineDotsCircleHorizontal /><p>More</p></Link>
+            </div>
             <button className="btn btnTweet" onClick={ toggle }>Tweet</button>
-        </div>
+        </nav>
     )
 }
 

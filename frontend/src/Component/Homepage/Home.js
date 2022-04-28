@@ -1,18 +1,17 @@
 import React, {useEffect, useState} from "react";
 import { userService } from "../../Services/UserService";
-import { useParams } from "react-router-dom";
 import NavLeft from './Components/NavLeft';
 import Post from "./Post";
 import SideBar from "./SideBar";
-import CreatePost from "./Components/CreatePost";
 import ModalTweet from "./Components/ModalTweet";
 import NavTop from "./Components/NavTop";
+import CreatePost from "./Components/CreatePost";
+import UserCard from "./Components/UserCard";
 
 function Home() {
     const [modal, setModal] = useState(false);
     const [loadingBtn, setLoadingBtn] = useState(false);
     const [data, setData] = useState([]);
-    const { username } = useParams();
     const token = localStorage.getItem("authtoken");
     const toggle = () => {
         if (modal) {
@@ -75,9 +74,9 @@ function Home() {
             />
             <header className="homeHeader">
                 <NavLeft
-                    username={username}
                     toggle={toggle}
                 />
+                <UserCard />
             </header>
             <div className="containerContent">
                 <NavTop />

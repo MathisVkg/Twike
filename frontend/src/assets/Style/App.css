@@ -224,11 +224,11 @@ div .modal-backdrop {
     flex-direction: column;
     justify-content: flex-end;
 }
-.nav {
+.navGroup {
     display: flex;
     flex-direction: column;
 }
-.nav span {
+.navGroup a {
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -241,14 +241,15 @@ div .modal-backdrop {
     width: fit-content;
     transition: 0.2s ease-in-out;
 }
-.nav span:hover {
+.navGroup a:hover {
     background-color: rgba(100, 100, 100, 0.32);
+    color: #fff;
 }
-.nav span svg {
+.navGroup a svg {
     font-size: 1.7em;
     margin-right: 20px;
 }
-.nav span p {
+.navGroup a p {
     margin: 0;
 }
 .containerNavigation .btnTweet {
@@ -271,7 +272,37 @@ div .modal-backdrop {
     cursor: pointer;
     margin-left: 14px;
 }
-
+.containerUserCard {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    bottom: 15px;
+    background-color: #262A2DFF;
+    width: 250px;
+    padding: 10px 5px;
+    border-radius: 25px;
+}
+.containerUserCard div {
+    margin-left: 15px;
+}
+.containerUserCard div .pseudo {
+    margin: 0;
+    font-size: 1em;
+}
+.containerUserCard div .accountName {
+    margin: 0;
+    color: #646464;
+    font-size: 0.9em;
+}
+.containerUserCard button {
+    position: absolute;
+    right: 25px;
+    padding: 2px;
+    color: #fff;
+}
+.containerUserCard button:hover {
+    color: #fff;
+}
 /* Content */
 .containerContent {
     display: flex;
@@ -351,7 +382,7 @@ div .modal-backdrop {
 }
 .navTopHome h2 {
     font-size: 1.5em;
-    position: relative;
+    margin-left: 10px;
 }
 .navTopHome .searchGroup {
     position: relative;

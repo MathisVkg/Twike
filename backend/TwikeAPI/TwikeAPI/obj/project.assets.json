@@ -14,6 +14,19 @@
           "lib/netstandard2.1/AutoMapper.dll": {}
         }
       },
+      "AutoMapper.Extensions.Microsoft.DependencyInjection/11.0.0": {
+        "type": "package",
+        "dependencies": {
+          "AutoMapper": "11.0.0",
+          "Microsoft.Extensions.Options": "6.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
+        }
+      },
       "FluentValidation/10.4.0": {
         "type": "package",
         "compile": {
@@ -498,6 +511,20 @@
         "icon.png",
         "lib/netstandard2.1/AutoMapper.dll",
         "lib/netstandard2.1/AutoMapper.xml"
+      ]
+    },
+    "AutoMapper.Extensions.Microsoft.DependencyInjection/11.0.0": {
+      "sha512": "0asw5WxdCFh2OTi9Gv+oKyH9SzxwYQSnO8TV5Dd0GggovILzJW4UimP26JAcxc3yB5NnC5urooZ1BBs8ElpiBw==",
+      "type": "package",
+      "path": "automapper.extensions.microsoft.dependencyinjection/11.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
+        "automapper.extensions.microsoft.dependencyinjection.nuspec",
+        "icon.png",
+        "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll"
       ]
     },
     "FluentValidation/10.4.0": {
@@ -1374,6 +1401,7 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "AutoMapper >= 11.0.1",
+      "AutoMapper.Extensions.Microsoft.DependencyInjection >= 11.0.0",
       "FluentValidation >= 10.4.0",
       "FluentValidation.AspNetCore >= 10.4.0",
       "FluentValidation.DependencyInjectionExtensions >= 10.4.0",
@@ -1388,19 +1416,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mvk18\\.nuget\\packages\\": {}
+    "C:\\Users\\mathis\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mvk18\\Documents\\Repository\\DEVELOP\\Twike\\backend\\TwikeAPI\\TwikeAPI\\TwikeAPI.csproj",
+      "projectUniqueName": "C:\\Users\\mathis\\Documents\\REPO\\Twike\\backend\\TwikeAPI\\TwikeAPI\\TwikeAPI.csproj",
       "projectName": "TwikeAPI",
-      "projectPath": "C:\\Users\\mvk18\\Documents\\Repository\\DEVELOP\\Twike\\backend\\TwikeAPI\\TwikeAPI\\TwikeAPI.csproj",
-      "packagesPath": "C:\\Users\\mvk18\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mvk18\\Documents\\Repository\\DEVELOP\\Twike\\backend\\TwikeAPI\\TwikeAPI\\obj\\",
+      "projectPath": "C:\\Users\\mathis\\Documents\\REPO\\Twike\\backend\\TwikeAPI\\TwikeAPI\\TwikeAPI.csproj",
+      "packagesPath": "C:\\Users\\mathis\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\mathis\\Documents\\REPO\\Twike\\backend\\TwikeAPI\\TwikeAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\mvk18\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\mathis\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1429,6 +1457,10 @@
           "AutoMapper": {
             "target": "Package",
             "version": "[11.0.1, )"
+          },
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+            "target": "Package",
+            "version": "[11.0.0, )"
           },
           "FluentValidation": {
             "target": "Package",
@@ -1497,7 +1529,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

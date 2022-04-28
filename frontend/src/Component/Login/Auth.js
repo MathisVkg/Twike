@@ -3,6 +3,7 @@ import { AiOutlineTwitter } from 'react-icons/ai';
 import AuthSignUp from './AuthSignUp';
 import { useNavigate } from "react-router-dom";
 import { authservice } from "../../Services/AuthService";
+import { Spinner } from "reactstrap";
 
 function Auth() {
     const [username, setUsername] = useState("");
@@ -82,7 +83,7 @@ function Auth() {
                         <input type="checkbox" name="remember" className="checkboxInput" value={remember} onChange={e => setRemember(e.target.checked)}/>
                     </div>
                     <span className="errorSpan">{ errorFormSignIn ? "Username or password incorrect" : "" }</span>
-                    <button type="submit" className="btn btn-primary">{ loadingBtn ? <div className="lds-dual-ring" /> : "Log In" }</button>
+                    <button type="submit" className="btn btn-primary">{ loadingBtn ? <Spinner size="sm" className="loadingBtn" /> : "Log In" }</button>
                 </form>
                 <div className="divSignUp">
                     <p>You don't have account ? Create one here</p>

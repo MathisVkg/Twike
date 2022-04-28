@@ -343,7 +343,7 @@ div .modal-backdrop {
 }
 .containerPost .postReactions button {
     color: #fff;
-    padding: 0;
+    padding: 0 5px;
 }
 .containerPost .postReactions svg {
     font-size: 1em;

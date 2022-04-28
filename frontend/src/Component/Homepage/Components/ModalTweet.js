@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Modal, ModalBody, ModalHeader, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from "reactstrap";
+import { Modal, ModalBody, ModalHeader, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Spinner } from "reactstrap";
 import { BsCardImage } from "react-icons/bs";
 import { AiOutlineFileGif } from "react-icons/ai";
 import { ImStatsBars } from "react-icons/im";
@@ -72,7 +72,7 @@ function ModalTweet({ modal, toggle, loadingBtn, submitTweet }) {
                                     <CircularProgress variant="determinate" value={progressValue}/>
                                 </Stack>
                                 <button type="submit" className="btn btn-primary btnTweet" disabled={ errorTweet }>
-                                    { loadingBtn ? <span className="lds-dual-ring" style={{ transform: "scale(0.8)" }}/> : "Tweet" }
+                                    { loadingBtn ? <Spinner size="sm" className="loadingBtn" /> : "Tweet" }
                                 </button>
                             </div>
                         </div>

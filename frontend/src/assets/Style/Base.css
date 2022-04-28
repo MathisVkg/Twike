@@ -35,26 +35,29 @@ body {
 }
 
 /*BtnLoading anim*/
-.lds-dual-ring {
-  display: inline-block;
-  width: 25px;
-  height: 25px;
+.loadingBtn {
+  margin: 0 0.7rem;
 }
-.lds-dual-ring:after {
-  content: " ";
-  display: block;
-  margin-top: 3px;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  border: 2px solid #fff;
-  border-color: #fff transparent #fff transparent;
-  animation: lds-dual-ring 1.2s linear infinite;
-}
-@keyframes lds-dual-ring {
-  from {transform: rotate(0deg);}
-  to {transform: rotate(360deg);}
-}
+/*.lds-dual-ring {*/
+/*  display: inline-block;*/
+/*  width: 25px;*/
+/*  height: 25px;*/
+/*}*/
+/*.lds-dual-ring:after {*/
+/*  content: " ";*/
+/*  display: block;*/
+/*  margin-top: 3px;*/
+/*  width: 25px;*/
+/*  height: 25px;*/
+/*  border-radius: 50%;*/
+/*  border: 2px solid #fff;*/
+/*  border-color: #fff transparent #fff transparent;*/
+/*  animation: lds-dual-ring 1.2s linear infinite;*/
+/*}*/
+/*@keyframes lds-dual-ring {*/
+/*  from {transform: rotate(0deg);}*/
+/*  to {transform: rotate(360deg);}*/
+/*}*/
 
 /* BtnCross */
 .btnCrossSign:after {

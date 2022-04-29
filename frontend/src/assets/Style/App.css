@@ -44,7 +44,23 @@
     width: 255px;
     height: 255px;
 }
-
+.modalForm .modal-content {
+    background-color: #151515;
+}
+.modalForm .modal-content span {
+    color: #fff;
+    margin-left: 15px;
+}
+.modalForm .modal-content input,
+.modalForm .modal-content button {
+    border-radius: 9999px;
+    padding: 0.375rem 1.1rem;
+}
+.modalForm .modal-content .modal-body button,
+.modalForm .modal-content .modal-footer button {
+    background-color: #177fc4;
+    color: #fff;
+}
 .formSignIn {
     color: #fff;
     margin-left: 50px;

@@ -31,15 +31,20 @@ function Auth() {
         }
     }
 
-    const formSubmitSignUp = (e, user, password, email) => {
+    const formSubmitSignUp = (e, user, password, email, account) => {
         e.preventDefault();
+        if (username === "" || password === "" || account === "") return;
         setLoadingBtn(true);
         const userInfo = {
             "username": user.trim(),
             "password": password.trim(),
-            "email": email.trim()
+            "email": email.trim(),
+            "account": account.trim()
         }
-        if (user === "" || password === "") return;
+        setTimeout(() => {
+            setLoadingBtn(false);
+        }, 1500)
+        console.log(userInfo);
     }
 
     const createNewUser = () => {
@@ -64,7 +69,6 @@ function Auth() {
                 loadingBtn={loadingBtn}
             />
             <div className="w-50 containerLeft">
-                {/*<img src="../../assets/img/TwikeBack.png" alt="twikebackdrop" className="authImg"/>*/}
                 <AiOutlineTwitter className="authSvg"/>
             </div>
             <div className="w-50 containerRight">

@@ -22,8 +22,7 @@ builder.Services.AddSwaggerGen(c =>
 // var provider = builder.Services.BuildServiceProvider();
 // var configuration = provider.GetService<IConfiguration>();
 var serverVersion = new MySqlServerVersion(new Version(8, 0, 27));
-var route = "server=localhost; user=root; password=root12345678; database=TwikeDB;";
-builder.Services.AddDbContext<TwikeDbContext>(options => options.UseMySql(route, serverVersion));
+builder.Services.AddDbContext<TwikeDbContext>(options => options.UseMySql("server=localhost; user=root; password=root22032203; database=TwikeDB;", serverVersion));
 
 var AllowHostOrigin = "AllowHostOrigin";
 builder.Services.AddCors(options =>
@@ -37,7 +36,7 @@ builder.Services.AddCors(options =>
 var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
-    app.UseDeveloperExceptionPage();
+    // app.UseDeveloperExceptionPage();
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {

@@ -110,7 +110,6 @@ C:\Users\mathis\Documents\REPO\Twike\backend\TwikeAPI\TwikeAPI\bin\Debug\net6.0\
 C:\Users\mathis\Documents\REPO\Twike\backend\TwikeAPI\TwikeAPI\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\mathis\Documents\REPO\Twike\backend\TwikeAPI\TwikeAPI\bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll
 C:\Users\mathis\Documents\REPO\Twike\backend\TwikeAPI\TwikeAPI\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
-C:\Users\mathis\Documents\REPO\Twike\backend\TwikeAPI\TwikeAPI\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
 C:\Users\mathis\Documents\REPO\Twike\backend\TwikeAPI\TwikeAPI\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\mathis\Documents\REPO\Twike\backend\TwikeAPI\TwikeAPI\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\mathis\Documents\REPO\Twike\backend\TwikeAPI\TwikeAPI\bin\Debug\net6.0\Microsoft.Extensions.Logging.dll
@@ -118,14 +117,12 @@ C:\Users\mathis\Documents\REPO\Twike\backend\TwikeAPI\TwikeAPI\bin\Debug\net6.0\
 C:\Users\mathis\Documents\REPO\Twike\backend\TwikeAPI\TwikeAPI\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
 C:\Users\mathis\Documents\REPO\Twike\backend\TwikeAPI\TwikeAPI\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
 C:\Users\mathis\Documents\REPO\Twike\backend\TwikeAPI\TwikeAPI\bin\Debug\net6.0\Microsoft.OpenApi.dll
-C:\Users\mathis\Documents\REPO\Twike\backend\TwikeAPI\TwikeAPI\bin\Debug\net6.0\Mono.TextTemplating.dll
 C:\Users\mathis\Documents\REPO\Twike\backend\TwikeAPI\TwikeAPI\bin\Debug\net6.0\MySqlConnector.dll
 C:\Users\mathis\Documents\REPO\Twike\backend\TwikeAPI\TwikeAPI\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\mathis\Documents\REPO\Twike\backend\TwikeAPI\TwikeAPI\bin\Debug\net6.0\Pomelo.EntityFrameworkCore.MySql.dll
 C:\Users\mathis\Documents\REPO\Twike\backend\TwikeAPI\TwikeAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\mathis\Documents\REPO\Twike\backend\TwikeAPI\TwikeAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\mathis\Documents\REPO\Twike\backend\TwikeAPI\TwikeAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\mathis\Documents\REPO\Twike\backend\TwikeAPI\TwikeAPI\bin\Debug\net6.0\System.CodeDom.dll
 C:\Users\mathis\Documents\REPO\Twike\backend\TwikeAPI\TwikeAPI\bin\Debug\net6.0\System.Collections.Immutable.dll
 C:\Users\mathis\Documents\REPO\Twike\backend\TwikeAPI\TwikeAPI\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
 C:\Users\mathis\Documents\REPO\Twike\backend\TwikeAPI\TwikeAPI\obj\Debug\net6.0\TwikeAPI.csproj.AssemblyReference.cache

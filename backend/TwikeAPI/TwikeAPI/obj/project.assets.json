@@ -1346,19 +1346,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mvk18\\.nuget\\packages\\": {}
+    "C:\\Users\\mathis\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mvk18\\Documents\\Repository\\DEVELOP\\Twike\\backend\\TwikeAPI\\TwikeAPI\\TwikeAPI.csproj",
+      "projectUniqueName": "C:\\Users\\mathis\\Documents\\REPO\\Twike\\backend\\TwikeAPI\\TwikeAPI\\TwikeAPI.csproj",
       "projectName": "TwikeAPI",
-      "projectPath": "C:\\Users\\mvk18\\Documents\\Repository\\DEVELOP\\Twike\\backend\\TwikeAPI\\TwikeAPI\\TwikeAPI.csproj",
-      "packagesPath": "C:\\Users\\mvk18\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mvk18\\Documents\\Repository\\DEVELOP\\Twike\\backend\\TwikeAPI\\TwikeAPI\\obj\\",
+      "projectPath": "C:\\Users\\mathis\\Documents\\REPO\\Twike\\backend\\TwikeAPI\\TwikeAPI\\TwikeAPI.csproj",
+      "packagesPath": "C:\\Users\\mathis\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\mathis\\Documents\\REPO\\Twike\\backend\\TwikeAPI\\TwikeAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\mvk18\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\mathis\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1455,7 +1455,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

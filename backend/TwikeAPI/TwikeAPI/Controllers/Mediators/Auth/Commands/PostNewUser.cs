@@ -45,7 +45,7 @@ public class PostNewUser
 
             await _context.Users.AddAsync(userModel, cancellationToken);
             await _context.SaveChangesAsync(cancellationToken);
-            return _mapper.Map<User, UserDto>(userModel);
+            return new UserDto();
         }
         
         private static string GetHash(string password)
@@ -62,12 +62,6 @@ public class PostNewUser
 
     public class UserDto : BaseResponse, IMapFrom<User>
     {
-        public string AccountName { get; set; }
-    
-        public string Pseudo { get; set; }
-    
-        public string Email { get; set; }
-    
-        public string Password { get; set; }
+        public int Id { get; set; }
     }
 }

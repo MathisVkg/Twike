@@ -6,16 +6,17 @@ export const authservice = {
     connectUser
 }
 
-function createAccount() {
-    const url = ``;
-    return axios.post().then((resp) => {
+function createAccount(user) {
+    const url = `https://localhost:7190/user`;
+    console.log(user)
+    return axios.post(url, user).then((resp) => {
         return resp;
     })
 }
 
-function connectUser() {
-    const url = ``;
-    return axios.get().then((resp) => {
-        return resp
+function connectUser(account, password) {
+    const url = `https://localhost:7190/authentification/token/${account}/${password}`;
+    return axios.get(url).then((resp) => {
+        return resp;
     })
 }

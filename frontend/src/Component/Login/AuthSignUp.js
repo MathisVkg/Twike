@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Modal, ModalBody, ModalHeader, ModalFooter, Spinner } from 'reactstrap';
 
-function AuthSignUp({ modal, loadingBtn, toggle, formSubmitSignUp }) {
+function AuthSignUp({ modal, loadingBtn, toggle, formSubmitSignUp, errorFormSignUp }) {
     const [usernameCreate, setUsernameCreate] = useState("");
     const [passwordCreate, setPasswordCreate] = useState("");
     const [emailCreate, setEmailCreate] = useState("");
@@ -31,6 +31,7 @@ function AuthSignUp({ modal, loadingBtn, toggle, formSubmitSignUp }) {
                         <span>Password</span>
                         <input type="password" name="password" className="form-control w-100" value={passwordCreate}  onChange={(e) => setPasswordCreate(e.target.value)} />
                     </div>
+                    {errorFormSignUp ? <span className="errorSignForm">All field is required</span> : null}
                     <button type="submit" className="btn btn-primary" style={{ marginBottom: "10px", marginTop: "25px" }}>{ loadingBtn ? <Spinner size="sm" className="loadingBtn" /> : "Create Account" }</button>
                 </form>
             </ModalBody>

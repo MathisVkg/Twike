@@ -27,7 +27,7 @@ function Home() {
 
     useEffect( () => {
         // if (token === null) navigate(`/`);
-        if (data.length <= 0) connectUser(token);
+        // if (data.length <= 0) connectUser(token);
     }, [])
 
     const submitTweet = (e) => {

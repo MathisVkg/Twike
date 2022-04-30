@@ -6,7 +6,7 @@ export const userService = {
 }
 
 function getUserInfo(token) {
-    const url = `https://localhost:7190/Login/userInfo?token=${token}`;
+    const url = ``;
     return axios.get(url).then((resp) => {
         return resp;
     })

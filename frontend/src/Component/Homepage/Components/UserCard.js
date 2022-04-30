@@ -16,7 +16,7 @@ function UserCard({ processLogOut }) {
                 <DropdownToggle caret><BsThreeDots /></DropdownToggle>
                 <DropdownMenu>
                     <DropdownItem>Settings</DropdownItem>
-                    <DropdownItem onClick={ processLogOut}>Log Out</DropdownItem>
+                    <DropdownItem onClick={ processLogOut }>Log Out</DropdownItem>
                 </DropdownMenu>
             </Dropdown>
         </div>

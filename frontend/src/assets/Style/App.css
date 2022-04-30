@@ -86,7 +86,10 @@
     margin-left: 15px;
     margin-top: 10px;
 }
-
+.modal .modal-body .errorSignForm {
+    color: #e82929;
+    margin: 15px 0 -10px 15px;
+}
 .divSignUp {
     margin-top: 75px;
     margin-left: 50px;

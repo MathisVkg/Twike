@@ -2,6 +2,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using TwikeAPI.Controllers.Mediators.Auth.Commands;
+using TwikeAPI.Controllers.Mediators.Auth.Queries;
 using TwikeAPI.Controllers.Mediators.Settings;
 
 namespace TwikeAPI.Controllers;
@@ -14,6 +15,7 @@ public class UserController : ControllerBaseExtended
     {
         Mediator = mediator;
     }
+    
     
     [HttpPost("/user")]
     [ProducesResponseType(typeof(PostNewUser.UserDto), StatusCodes.Status200OK)]

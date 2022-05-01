@@ -6,7 +6,7 @@ using TwikeAPI.Models;
 using MediatR;
 using TwikeAPI.Controllers.Mediators.Settings;
 
-namespace TwikeAPI.Controllers.Mediators.Auth.Commands;
+namespace TwikeAPI.Controllers.Mediators;
 
 public class PostNewUser
 {
@@ -59,9 +59,9 @@ public class PostNewUser
             return Convert.ToBase64String(passHash);
         }
     }
-
     public class UserDto : BaseResponse, IMapFrom<User>
     {
         public int Id { get; set; }
     }
+
 }

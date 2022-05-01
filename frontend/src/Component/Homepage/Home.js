@@ -8,11 +8,13 @@ import NavTop from "./Components/NavTop";
 import CreatePost from "./Components/CreatePost";
 import UserCard from "./Components/UserCard";
 import { useNavigate } from "react-router-dom";
+import {Alert} from "reactstrap";
 
 function Home() {
     const [modal, setModal] = useState(false);
     const [loadingBtn, setLoadingBtn] = useState(false);
-    const [data, setData] = useState([]);
+    const [userInfo, setUserInfo] = useState([]);
+    const [isAlertDanger, setIsAlertDanger] = useState(false);
     const token = localStorage.getItem("authtoken");
     let navigate = useNavigate();
     const toggle = () => {
@@ -27,28 +29,22 @@ function Home() {
 
     useEffect( () => {
         // if (token === null) navigate(`/`);
-        // if (data.length <= 0) connectUser(token);
+        if (userInfo.length <= 0) connectUser(token);
     }, [])
 
     const submitTweet = (e) => {
         e.preventDefault();
         const dataTweet = {
-            "userId": data.id,
-            "username": data.username,
+            "accountName": userInfo.accountName,
+            "pseudo": userInfo.pseudo,
             "content": e.target.text.value.trim(),
-            "date": formatDate(new Date()),
-            "time": new Date().getTime()
-        }
-        if (dataTweet.content === "") {
-            setLoadingBtn(true);
-            return;
+            "date": toISOStringWithTimezone(new Date()),
         }
         setLoadingBtn(true);
         setTimeout(() => {
-            setLoadingBtn(false);
             postTweet(dataTweet);
         }, 1200);
-        console.log('tweet: ', dataTweet);
+        console.log(dataTweet)
     }
 
     const formatDate = (date) => {
@@ -56,15 +52,42 @@ function Home() {
         return new Date(date).toLocaleString("fr-BE", options);
     };
 
+    const toISOStringWithTimezone = date => {
+        const tzOffset = -date.getTimezoneOffset();
+        const diff = tzOffset >= 0 ? '+' : '-';
+        const pad = n => `${Math.floor(Math.abs(n))}`.padStart(2, '0');
+        return date.getFullYear() +
+            '-' + pad(date.getMonth() + 1) +
+            '-' + pad(date.getDate()) +
+            'T' + pad(date.getHours()) +
+            ':' + pad(date.getMinutes()) +
+            ':' + pad(date.getSeconds()) +
+            diff + pad(tzOffset / 60) +
+            ':' + pad(tzOffset % 60);
+    };
+
     const connectUser = (token) => {
         userService.getUserInfo(token).then((resp) => {
-            if (resp) setData(resp.data.response[0]);
+            if (resp.data.success) setUserInfo(resp.data.response);
             console.log(resp.data);
         })
     }
 
-    const postTweet = (data) => {
-
+    const postTweet = (tweet) => {
+        userService.postUserTweet(tweet).then(
+            (resp) => {
+                console.log(resp);
+                setLoadingBtn(false);
+                setModal(false);
+            },
+            () => {
+                setLoadingBtn(false);
+                setIsAlertDanger(true);
+                setTimeout(() => {
+                    setIsAlertDanger(false);
+                }, 2000);
+            }
+        )
     }
 
     const processLogOut = () => {
@@ -80,6 +103,9 @@ function Home() {
                 loadingBtn={loadingBtn}
                 submitTweet={submitTweet}
             />
+            <div className="alertDanger">
+                <Alert color="danger" isOpen={ isAlertDanger }>A error as occurred — <strong>Please retry!</strong></Alert>
+            </div>
             <header className="homeHeader">
                 <NavLeft
                     toggle={toggle}

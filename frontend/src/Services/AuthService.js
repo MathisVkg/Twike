@@ -1,14 +1,12 @@
-import React from "react";
 import axios from "axios";
 
-export const authservice = {
+export const authService = {
     createAccount,
     connectUser
 }
 
 function createAccount(user) {
     const url = `https://localhost:7190/user`;
-    console.log(user)
     return axios.post(url, user).then((resp) => {
         return resp;
     })

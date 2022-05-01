@@ -11,4 +11,8 @@ public class ReactionComment
     public string AccountName { get; set; }
     
     public DateTime? Date { get; set; }
+    
+    public int Time { get; set; }
+    
+    public int PostId { get; set; }
 }

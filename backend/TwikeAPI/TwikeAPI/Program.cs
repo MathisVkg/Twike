@@ -16,7 +16,8 @@ builder.Services.Configure<ApiBehaviorOptions>(options => { options.SuppressMode
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new() { Title = "TwikeAPI", Version = "v1.0" });
+    c.SwaggerDoc("v1", new () { Title = "TwikeAPI", Version = "v1.0" });
+    c.CustomSchemaIds(x => x.FullName);
 });
 
 // var provider = builder.Services.BuildServiceProvider();
@@ -40,6 +41,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI(c =>
     {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "webapi v1");
+        c.DefaultModelsExpandDepth(-1);
     });
 }
 
@@ -49,4 +51,5 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
+// app.MapHealthChecks("/ef-healts");
 app.Run();

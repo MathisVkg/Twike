@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { AiOutlineTwitter } from 'react-icons/ai';
 import AuthSignUp from './AuthSignUp';
 import { useNavigate } from "react-router-dom";
-import { authservice } from "../../Services/AuthService";
+import {authService, authservice} from "../../Services/AuthService";
 import { Spinner, Alert } from "reactstrap";
 
 function Auth() {
@@ -59,7 +59,7 @@ function Auth() {
     }
 
     const createNewUser = (user) => {
-        authservice.createAccount(user).then(
+        authService.createAccount(user).then(
             () => {
                 setLoadingBtn(false);
                 setModal(false);
@@ -72,13 +72,13 @@ function Auth() {
                 setIsAlertDanger(true);
                 setTimeout(() => {
                     setIsAlertDanger(false);
-                }, 1500);
+                }, 2000);
             }
         )
     }
 
     const processConnect = (account, password) => {
-        authservice.connectUser(account, password).then(
+        authService.connectUser(account, password).then(
             (result) => {
                 setLoadingBtn(false);
                 localStorage.setItem('authtoken', result.data.response.authtoken);

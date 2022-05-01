@@ -10,5 +10,5 @@ public class Reaction
     
     public int Retweet { get; set; }
     
-    public ReactionComment ReactionComment { get; set; }
+    public int PostId { get; set; }
 }

@@ -40,12 +40,10 @@ namespace TwikeAPI.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int>("ReactionId")
+                    b.Property<int>("Time")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ReactionId");
 
                     b.ToTable("Posts");
                 });
@@ -62,15 +60,13 @@ namespace TwikeAPI.Migrations
                     b.Property<int>("Like")
                         .HasColumnType("int");
 
-                    b.Property<int>("ReactionCommentId")
+                    b.Property<int>("PostId")
                         .HasColumnType("int");
 
                     b.Property<int>("Retweet")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ReactionCommentId");
 
                     b.ToTable("Reactions");
                 });
@@ -92,9 +88,15 @@ namespace TwikeAPI.Migrations
                     b.Property<DateTime?>("Date")
                         .HasColumnType("datetime(6)");
 
+                    b.Property<int>("PostId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Pseudo")
                         .IsRequired()
                         .HasColumnType("longtext");
+
+                    b.Property<int>("Time")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -130,28 +132,6 @@ namespace TwikeAPI.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("TwikeAPI.Models.Post", b =>
-                {
-                    b.HasOne("TwikeAPI.Models.Reaction", "Reaction")
-                        .WithMany()
-                        .HasForeignKey("ReactionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Reaction");
-                });
-
-            modelBuilder.Entity("TwikeAPI.Models.Reaction", b =>
-                {
-                    b.HasOne("TwikeAPI.Models.ReactionComment", "ReactionComment")
-                        .WithMany()
-                        .HasForeignKey("ReactionCommentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ReactionComment");
                 });
 #pragma warning restore 612, 618
         }

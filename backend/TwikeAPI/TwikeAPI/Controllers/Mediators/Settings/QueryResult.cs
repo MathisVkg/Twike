@@ -1,8 +1,10 @@
-﻿namespace TwikeAPI.Controllers.Mediators.Settings;
+﻿using TwikeAPI.Models;
+
+namespace TwikeAPI.Controllers.Mediators.Settings;
 
 public class QueryResult<T> : BaseResponse
 {
-    public List<T> Items { get; set; } = new();
+    public IQueryable<User> Items { get; set; }
 
     public int TotalItems { get; set; }
 }

@@ -11,6 +11,4 @@ public class Post
     public string AccountName { get; set; }
     
     public DateTime? Date { get; set; }
-    
-    public Reaction Reaction { get; set; }
 }

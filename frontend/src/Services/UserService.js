@@ -1,17 +1,20 @@
-import React from "react";
 import axios from "axios";
 
 export const userService = {
     getUserInfo,
+    postUserTweet
 }
 
 function getUserInfo(token) {
-    const url = ``;
+    const url = `https://localhost:7190/authentification/userInfo/${token}`;
     return axios.get(url).then((resp) => {
         return resp;
     })
 }
 
-function postTweet(data) {
-    const url = ``;
+function postUserTweet(tweet) {
+    const url = `https://localhost:7190/tweet`;
+    return axios.post(url, tweet).then((resp) => {
+        return resp;
+    })
 }

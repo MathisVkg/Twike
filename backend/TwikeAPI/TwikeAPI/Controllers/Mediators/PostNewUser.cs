@@ -63,5 +63,4 @@ public class PostNewUser
     {
         public int Id { get; set; }
     }
-
 }
